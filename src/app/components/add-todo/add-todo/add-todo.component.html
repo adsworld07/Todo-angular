@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="button-container">
+        <button class="btn btn-primary custom-button end-button" (click)="showComponent = true" *ngIf="!showComponent">Add new Todo</button>
+    </div>
+    <!-- <button class="btn btn-primary custom-button" (click)="showComponent = true" *ngIf="!showComponent">Add new Todo</button> -->
+    <div *ngIf="showComponent">
+        <h2 class="add-todo-header">Add a New Todo</h2>
+        <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control custom-input" [(ngModel)]="newTodo.title" placeholder="Enter a new todo">
+            <div class="input-group-append">
+                <select class="form-control custom-input" [(ngModel)]="newTodo.priority">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+                <button class="btn btn-primary custom-button" (click)="addTodo()">Add</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
