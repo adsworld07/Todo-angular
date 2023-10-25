@@ -10,6 +10,7 @@ import { TodoService } from 'src/app/services/todo.service';
 export class TodoListComponent implements OnInit {
   @Input() newTodoAdded: any[] = [""];
   todos: any[] = [];
+  newTodo:any[]=[];
 
   constructor(private todoService: TodoService,private cdr: ChangeDetectorRef) { }
 
@@ -32,6 +33,12 @@ export class TodoListComponent implements OnInit {
     if (changes['newTodoAdded'] && changes['newTodoAdded'].currentValue) {
       this.addNewTodos(changes['newTodoAdded'].currentValue);
     }
+  }
+  onNewTodoAdded(todoObject: any): void {
+    console.log('Received new todo:', todoObject);
+    const updatedNewTodo = [todoObject];
+    this.newTodo = updatedNewTodo;
+    console.log(this.newTodo);
   }
 
   addNewTodos(newTodos: any[]): void {

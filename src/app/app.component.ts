@@ -8,14 +8,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todoApp';
-  newTodo:any[]=[];
-
-
-  onNewTodoAdded(todoObject: any): void {
-    console.log('Received new todo:', todoObject);
-    const updatedNewTodo = [todoObject];
-    this.newTodo = updatedNewTodo;
-    console.log(this.newTodo);
-  }
-  
 }

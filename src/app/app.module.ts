@@ -8,6 +8,8 @@ import { TodoListComponent } from './components/todo-list/todo-list/todo-list.co
 import { AddTodoComponent } from './components/add-todo/add-todo/add-todo.component';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { UserTodosComponent } from './components/user-todos/user-todos.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { HeaderComponent } from './components/header/header.component';
     TodoListComponent,
     AddTodoComponent,
     HeaderComponent,
+    LoginComponent,
+    UserTodosComponent,
   ],
   imports: [
     BrowserModule,
