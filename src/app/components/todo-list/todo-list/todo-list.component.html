@@ -1,36 +1,40 @@
-<!-- <app-add-todo (newTodoAdded)="onNewTodoAdded($event)"></app-add-todo> -->
-
 <div class="container">
-    <!-- <h1 class="todo-header">Todo List</h1> -->
-    <ul class="list-group">
-        <!-- <li class="list-group-item" *ngFor="let todo of todos"> -->
-            <div class="todo-item">
-                <!-- <input type="checkbox" class="todo-checkbox" [checked]="todo.completed"  />
-              
-                  <span [ngClass]="{'todo-title': true, 'completed': todo.completed}">{{ todo.title }} </span> -->
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                          <th>Tasks</th>
-                          <th >Priority</th>
-                          <th >delete</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let todo of todos; let i = index">
-                            <td>{{i+1}}</td>
-                            <td>{{ todo.title }}</td> 
-                            <td [ngClass]="getPriorityClass(todo.priority)">
-                            {{ todo.priority}}
-                            </td>
-                            <td><button (click)="deleteTodo(todo)">Delete</button></td>
-                          </tr>
-                      </tbody>
-                    
-                  </table>
-            </div>
-        <!-- </li> -->
-    </ul>
+  
+  <ul class="list-group">
+    
+    <div class="todo-item">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Tasks </th>
+            <th>Priority
+            </th>
+            <th>Delete</th>
+          </tr>
 
+        </thead>
+        <tbody>
+          <tr><td></td>
+            <td><input [(ngModel)]="searchTitle" placeholder="Search by Title" /></td>
+    <td><select [(ngModel)]="searchPriority" placeholder="Search by Priority">
+      <option value="">All Priorities</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <button class="search" (click)="search()">Search</button></td>
+    <td><button (click)="clearSearch()">Clear Search</button></td>
+  </tr>
+          <tr *ngFor="let todo of filteredTodos.length > 0 ? filteredTodos : todos; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{ todo.title }}</td>
+            <td [ngClass]="getPriorityClass(todo.priority)">{{ todo.priority }}</td>
+            <td><button (click)="deleteTodo(todo)">Delete</button></td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </ul>
 </div>

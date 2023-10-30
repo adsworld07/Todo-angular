@@ -14,6 +14,7 @@ export class AddTodoComponent {
   newTodo: { title: string, priority: string } = { title: '', priority: '' };
   todoList: any[] = [];
   errorMessage: string = ''; 
+  errorText: string = '';
 
   constructor(private todoService: TodoService) { }
 
@@ -22,8 +23,8 @@ export class AddTodoComponent {
   }
 
   addTodo() {
-    if (this.newTodo.title.trim() === '') {
-      this.errorMessage = 'Please enter a todo title.';
+    if (this.newTodo.title.trim()===''||this.newTodo.priority.trim() === '') {
+      this.errorText = 'Please enter a todo title and priority.';
       return; 
     }
 
@@ -38,7 +39,7 @@ export class AddTodoComponent {
       this.newTodoAdded.emit(data);
       console.log('Emitting new todo:', data);
       this.newTodo.title = '';
-      this.errorMessage = ''; 
+      this.errorText = ''; 
       this.showComponent = !this.showComponent;
     });
   }

@@ -1,8 +1,11 @@
 <div class="header">
     <div>
-    <h1>Todo List</h1></div>
-   <div> <button class="logout">
+      <h1 class="app-header">Todo List</h1>
+    </div>
+    <div *ngIf="isUserLoggedIn">
+      <button  class="custom-button">
         <a (click)="logout()">Logout</a>
-    </button>
-</div>
-   
+      </button>
+    </div>
+  </div>
+  

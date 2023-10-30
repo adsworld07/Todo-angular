@@ -19,10 +19,10 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     const loggedInUserString = localStorage.getItem('loggedInUser');
-    if (loggedInUserString) {
-      const loggedInUser = JSON.parse(loggedInUserString);
-    } else {
-    }
+    // if (loggedInUserString) {
+    // //   const loggedInUser = JSON.parse(loggedInUserString);
+    // } else {
+    // }
 
     if (loggedInUserString) {
       return true;

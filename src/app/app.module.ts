@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserTodosComponent } from './components/user-todos/user-todos.component';
+import { ErrorComponent } from './components/error/error.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { UserTodosComponent } from './components/user-todos/user-todos.component
     HeaderComponent,
     LoginComponent,
     UserTodosComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

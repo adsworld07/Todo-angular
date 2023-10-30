@@ -11,10 +11,14 @@ export class TodoListComponent implements OnInit {
   @Input() newTodoAdded: any[] = [""];
   todos: any[] = [];
   newTodo:any[]=[];
-
-  constructor(private todoService: TodoService,private cdr: ChangeDetectorRef) { }
+  isUserLoggedIn = true;
+  searchTitle: string = '';
+  searchPriority: string = '';
+  filteredTodos: any[] = [];
+  constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
+    this.isUserLoggedIn = true;
     this.todoService.getTodos().subscribe((data) => {
       this.todos = data.map((todo) => {
        
@@ -25,6 +29,8 @@ export class TodoListComponent implements OnInit {
         return todo;
        
       });
+      
+      
     });
   }
 
@@ -47,10 +53,15 @@ export class TodoListComponent implements OnInit {
 
   deleteTodo(todo: any): void {
     const index = this.todos.indexOf(todo);
-
     if (index !== -1) {
       this.todos.splice(index, 1);
     }
+
+    const filteredIndex = this.filteredTodos.indexOf(todo);
+  if (filteredIndex !== -1) {
+    this.filteredTodos.splice(filteredIndex, 1);
+  }
+    
   }
 
   getPriorityClass(priority: string): string {
@@ -64,5 +75,22 @@ export class TodoListComponent implements OnInit {
       default:
         return '';
     }
+  }
+
+  search() {
+    this.filteredTodos = this.todos.filter(todo =>
+      (todo.title.toLowerCase().includes(this.searchTitle.toLowerCase()) ||
+        !this.searchTitle) && 
+      (todo.priority === this.searchPriority || !this.searchPriority) 
+    );
+    
+  }
+
+ 
+
+  clearSearch() {
+    this.searchTitle = ''; 
+    this.searchPriority = ''; 
+    this.filteredTodos = []; 
   }
 }

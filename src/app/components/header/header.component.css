@@ -1,18 +1,36 @@
 .header {
     background-color: #333;
     color: #fff;
-    padding: 10px;
     text-align: center;
     position: sticky;
-    top: 0;
     z-index: 100;
-    margin-top: -15px;
     display: inline-flex;
-    width: 100%;
+    width: 100vw; /* Use viewport width to extend the full width */
     justify-content: space-between;
     align-items: center;
+    margin-top: -15px;
+    margin-left: -9px
+;
+  }
+  
+.app-header{
+    margin-left: 25px;
 }
 
-.logout{
-    margin: 20px;
+.custom-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-right: 55px;
+    /* padding-left: 85px; */
+    cursor: pointer;
+}
+
+
+
+.custom-button:hover {
+    background-color: #0056b3;
+    justify-content: end;
 }

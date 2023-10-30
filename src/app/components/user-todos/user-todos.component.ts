@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class UserTodosComponent {
   newTodo:any[]=[];
+  isUserLoggedIn = true;
 
 
   onNewTodoAdded(todoObject: any): void {

@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <div class="login-container">
     <h2>Login</h2>
     <label for="username">Username</label>
@@ -5,5 +7,6 @@
     <label for="password">Password</label>
     <input type="password" id="password" [(ngModel)]="password" placeholder="Enter your password">
     <button (click)="login()">Login</button>
+    <app-error [errorMessage]="errorText"></app-error>
   </div>
   
